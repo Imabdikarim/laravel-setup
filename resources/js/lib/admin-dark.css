@@ -1,0 +1,98 @@
+/*
+ * Dark mode for the admin shell.
+ * Loaded by theme.js. Every rule starts with :root[data-theme="dark"], which makes
+ * it win over the light styles without !important. Light mode is not touched.
+ */
+
+:root[data-theme="dark"] {
+    --dk-bg: #090c12;
+    --dk-surface: #10151f;
+    --dk-surface-2: #161d2a;
+    --dk-line: #232d3d;
+    --dk-ink: #eef2f8;
+    --dk-muted: #8b97a9;
+    --dk-accent: #8cc8ff;
+}
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .ma-shell,
+:root[data-theme="dark"] .ma-workspace,
+:root[data-theme="dark"] .ma-main {
+    background: var(--dk-bg);
+    color: var(--dk-ink);
+}
+
+/* Sidebar + topbar */
+:root[data-theme="dark"] .ma-desktop-sidebar,
+:root[data-theme="dark"] .ma-sidebar,
+:root[data-theme="dark"] .ma-mobile-nav,
+:root[data-theme="dark"] .ma-topbar {
+    background: #0d121b;
+    color: var(--dk-ink);
+    border-color: var(--dk-line);
+}
+
+:root[data-theme="dark"] .ma-mobile-nav::backdrop {
+    background: rgb(0 0 0 / 0.6);
+}
+
+:root[data-theme="dark"] .ma-topbar-title,
+:root[data-theme="dark"] .ma-icon-button {
+    color: var(--dk-ink);
+}
+
+:root[data-theme="dark"] .ma-nav-label {
+    color: var(--dk-muted);
+}
+
+:root[data-theme="dark"] .ma-nav-link {
+    color: #b6c0d0;
+}
+
+:root[data-theme="dark"] .ma-nav-link:hover {
+    background: var(--dk-surface-2);
+    color: #fff;
+}
+
+:root[data-theme="dark"] .ma-nav-link[aria-current="page"] {
+    background: rgb(93 178 255 / 0.14);
+    color: var(--dk-accent);
+}
+
+/* Headings and text */
+:root[data-theme="dark"] .ma-main h1,
+:root[data-theme="dark"] .ma-main h2,
+:root[data-theme="dark"] .ma-main h3,
+:root[data-theme="dark"] .ma-section-title,
+:root[data-theme="dark"] .ma-card-title {
+    color: var(--dk-ink);
+}
+
+:root[data-theme="dark"] .ma-card-description,
+:root[data-theme="dark"] .ma-empty-state p,
+:root[data-theme="dark"] .ma-account-details dt {
+    color: var(--dk-muted);
+}
+
+/* Cards and panels */
+:root[data-theme="dark"] .ma-section-card,
+:root[data-theme="dark"] .ma-empty-state,
+:root[data-theme="dark"] .ma-account-details,
+:root[data-theme="dark"] .ma-account-details > div {
+    background: var(--dk-surface);
+    border-color: var(--dk-line);
+    color: var(--dk-ink);
+}
+
+:root[data-theme="dark"] .ma-section-card:hover {
+    background: var(--dk-surface-2);
+}
+
+:root[data-theme="dark"] .ma-card-icon {
+    background: var(--dk-surface-2);
+    color: var(--dk-accent);
+}
+
+:root[data-theme="dark"] .ma-card-arrow {
+    color: var(--dk-muted);
+}

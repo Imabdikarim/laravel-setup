@@ -17,7 +17,7 @@ class SessionController extends Controller
             'password' => ['required', 'string'],
         ]);
 
-        if (! Auth::attempt($credentials + ['is_admin' => true])) {
+        if (! Auth::attempt($credentials + ['is_admin' => true], $request->boolean('remember'))) {
             throw ValidationException::withMessages([
                 'email' => 'The email or password is incorrect.',
             ]);

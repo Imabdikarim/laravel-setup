@@ -1,7 +1,8 @@
 import Login from '../views/auth/Login.vue';
 import AdminLayout from '../components/admin/AdminLayout.vue';
-import Dashboard from '../views/admin/Dashboard.vue';
+import Overview from '../views/admin/Overview.vue';
 import Projects from '../views/admin/Projects.vue';
+import Settings from '../views/admin/Settings.vue';
 import Account from '../views/admin/Account.vue';
 
 export default [
@@ -15,7 +16,7 @@ export default [
             {
                 path: '',
                 name: 'admin.dashboard',
-                component: Dashboard,
+                component: Overview,
                 meta: { title: 'Overview' },
             },
             {
@@ -23,6 +24,12 @@ export default [
                 name: 'admin.projects',
                 component: Projects,
                 meta: { title: 'Projects' },
+            },
+            {
+                path: 'settings',
+                name: 'admin.settings',
+                component: Settings,
+                meta: { title: 'Settings' },
             },
             {
                 path: 'account',
