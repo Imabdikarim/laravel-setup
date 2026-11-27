@@ -12,8 +12,14 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
         then: function () {
-            // The admin API uses the same session cookie as the site, so it runs
-            // inside the "web" group (CSRF protection included) rather than "api".
+            // Public, read-only JSON for the website: no session, no cookies.
+            Route::middleware(['api', 'throttle:60,1'])
+                ->prefix('api/public')
+                ->name('api.public.')
+                ->group(base_path('routes/public.php'));
+
+            // Admin API: same session cookie as the admin panel, so it runs inside
+            // the "web" group (CSRF protection included) rather than "api".
             Route::middleware(['web', 'auth', 'admin', 'throttle:60,1'])
                 ->prefix('api')
                 ->name('api.')

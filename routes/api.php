@@ -1,19 +1,20 @@
 <?php
 
+use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| API routes
+| Admin API (/api/...)
 |--------------------------------------------------------------------------
 |
-| Everything here is served under /api and is loaded from bootstrap/app.php
-| with the "web" (session + CSRF), "auth" and "admin" middleware, so only a
-| signed-in administrator can call these endpoints from the admin panel.
+| Loaded from bootstrap/app.php with the "web" (session + CSRF), "auth" and
+| "admin" middleware, so only a signed-in administrator can call these.
 |
-| Add future modules (projects, etc.) in this file.
+| The public website's read-only endpoints are in routes/public.php.
 |
 */
 
 Route::apiResource('users', UserController::class)->except('show');
+Route::apiResource('projects', ProjectController::class)->except('show');

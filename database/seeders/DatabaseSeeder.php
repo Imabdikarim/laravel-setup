@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      *
-     * Creates the first admin so you can sign in. Safe to run more than once:
-     * it updates the same user instead of creating a duplicate.
+     * Creates the first admin so you can sign in, plus sample projects.
+     * Safe to run more than once: it updates the same rows instead of duplicating them.
      */
     public function run(): void
     {
@@ -28,5 +28,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make(env('ADMIN_PASSWORD', 'ChangeMe123!')),
             'is_admin' => true,
         ])->save();
+
+        $this->call(ProjectSeeder::class);
     }
 }
